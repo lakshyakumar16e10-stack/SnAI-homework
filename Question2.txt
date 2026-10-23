@@ -1,0 +1,42 @@
+Question Title: Create a Project Folder Structure
+Question Link: https://my.newtonschool.co/playground/code/jipp2htnvrww?lecture_hash=v210chxjexei
+
+
+
+Solution:
+
+which create-service
+cat "$(which create-service)"
+cat > "$(which create-service)" <<'EOF'
+#!/bin/bash
+mkdir -p service/controllers service/models service/routes service/middleware
+printf 'API Service\n' > service/README.md
+printf 'console.log("Server started");\n' > service/server.js
+EOF
+chmod +x "$(which create-service)"
+create-service
+ls -R service
+cat service/README.md
+cat service/server.js
+
+
+
+Approach:
+
+First we have to find where the create-service command is located using which.
+Secondly we have to check the script using cat so we can see what is wrong with it.
+Then we have to fix the script so it creates all the required folders named controllers, models, routes and middleware.
+We also have to make sure that README.md and server.js are created inside the service folder with the correct content.
+After fixing the script we use chmod +x to make sure the command can be executed.
+Then we run create-service to generate the required project structure.
+Finally we use ls and cat to check whether all the folders and files have been created properly.
+Final structure should look like this:
+service/
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── server.js
+└── README.md
+
+Result: As a result the create-service command has been fixed and can now generate the required project folder structure with all the necessary files and folders.

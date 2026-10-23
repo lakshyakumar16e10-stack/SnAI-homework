@@ -1,0 +1,28 @@
+Question Title: Execute a Python Script Directly
+Question Link: https://my.newtonschool.co/playground/code/mepmefz373b4?lecture_hash=t5qc0u6ap8tg
+
+
+Solution:
+
+touch hello.py
+cat > hello.py <<'EOF'
+#!/usr/bin/env python3
+print("Hello from Python")
+EOF
+chmod +x hello.py
+./hello.py
+
+
+
+Approach:
+At first we make a file hello.py , then using cat we start inputing text inside of the file till we reach EOF
+We then use the shebang operator #!/usr/bin/env python3 to set out execution to be a python file and let the computer know of it
+Next we put the python code for printing Heloo from Python
+Finally we give the file executable permitions and run it using ./hello.py
+
+Final structure looks like:
+.
+└── hello.py
+
+
+Result: we have made a Hello.py file which outputs Hello from Python when executed
