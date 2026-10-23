@@ -1,0 +1,38 @@
+Question Title: Deployment Project Permissions
+Question Link: https://my.newtonschool.co/playground/code/3wz3wv7c89fo?lecture_hash=vifkrugjcwth
+
+
+
+Solution:
+
+chmod 700 deployment/app/*.py
+chmod -R 770 deployment/datasets/
+chmod 644 deployment/docs/OVERVIEW.md
+chmod 755 deployment/bin/*.sh
+
+Approach:
+
+First we change the permitions of all python files inside of deployment/app to be set to 700 so owner has all permitions while nobody else has anything
+Secondly we change the permitions for deployment/datasets/ using teh -R ( reclusive ) function so that tboth owner and the group has full permissions while restriction of outside person, set the permisions to be 770 so that the group and owner have all the permisions while others get no permisions
+Next we change permisions for deployment/docs/OVERVIEW.md to be 644 so that everyone has read permisions and the owner has read and write permiions
+Finnally we change all shell files inside of bin to be 755 so the owner has all permisions while the group and others get read and execute permisions only.
+
+Final structure looks like:
+deployment/
+├── app/
+│   ├── server.py
+│   ├── handler.py
+│   └── settings.py
+├── datasets/
+│   ├── train.csv
+│   └── test.csv
+├── docs/
+│   └── OVERVIEW.md
+└── bin/
+    ├── start.sh
+    ├── stop.sh
+    └── healthcheck.sh
+
+
+
+Result: Hence we have set a secure permision for the deployment project
