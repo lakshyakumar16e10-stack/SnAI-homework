@@ -1,0 +1,22 @@
+Question Title: The Missing Project Credentials
+Question Link: https://my.newtonschool.co/playground/code/7x83ezx6nimm
+
+
+Solution:
+
+grep -r "DB_PASSWORD" .
+pwd
+cat EventApp/config/.env > EventApp/db_password.txt
+
+
+
+Approach:
+First, we use grep -r "DB_PASSWORD" ., which acts like a search tool that looks through files and folders for any text matching "DB_PASSWORD". Here, -r allows us to search recursively through all subfolders
+Next we check for where we are and according to tahat we set out root file
+Finally we concatinate the found password from EventApp/config/.env to a fixed location of EventApp/db_password.txt
+
+Final structure looks like:
+???
+
+
+Result: We have found the password and saved it inside of EventApp/db_password.txt
