@@ -1,0 +1,45 @@
+Question Title: Build Pipeline Directory Tree
+Question Link: https://my.newtonschool.co/playground/code/r2ui5gw5lhqt?lecture_hash=n9ynhcuvkld8
+
+
+Solution:
+
+mkdir -p pipeline/stages/build
+mkdir -p pipeline/stages/test/unit/integration
+mkdir -p pipeline/env/staging
+mkdir -p pipeline/env/prod
+mkdir -p pipeline/artifacts/old
+chmod 750 pipeline/stages
+chmod 770 pipeline/artifacts
+chmod 700 pipeline/env
+cd pipeline/stages/build/
+touch app.py config.json NOTES.md
+echo "Build stage initialized." > NOTES.md
+cd ../..
+cd artifacts/old/
+touch build.log test.log deploy.log
+chmod 640 build.log test.log deploy.log
+
+
+Approach:
+
+First we make make all the folders required using mkdir -p (-p lets us make the non-existing parent folders while declaring the child folder itself)
+Secondly we use chmod to change permitions for the folders werequire to change like stages,artifacts and env given 750,770 and 700 respectively as per the questions demand for:
+=> pipeline/stages Owner to have read, write, execute, Group to have read, execute and Others to have no access and in pipeline/artifacts the Owner have read, write, execute while the Group has read, write, execute and Others have no access along with in pipeline/env the Owner should have read, write, execute and Group should have no access while Others get no access. 
+Next we change directory to pipeline/stages/build/ to make files app.py , config.json and NOTES.md , and we use echo to write Build stage initialized. inside of NOTES.md
+Finally we go back to pipelines and enter artifacts/old to make files build.log, test.log and deploy.log with the permitions of 640
+
+Final structure looks like:
+pipeline/
+├── stages/
+│   ├── build/
+│   └── test/
+│       └── unit/
+│           └── integration/
+├── env/
+│   ├── staging/
+│   └── prod/
+└── artifacts/
+    └── old/
+
+Result: We have thus finished making the pipeline directory tree with all its set notes and permitions 
