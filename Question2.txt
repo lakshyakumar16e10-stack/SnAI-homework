@@ -5,31 +5,29 @@ Question Link: https://my.newtonschool.co/playground/code/jipp2htnvrww?lecture_h
 
 Solution:
 
-which create-service
-cat "$(which create-service)"
-cat > "$(which create-service)" <<'EOF'
+cat > create-service << 'EOF'
 #!/bin/bash
-mkdir -p service/controllers service/models service/routes service/middleware
-printf 'API Service\n' > service/README.md
-printf 'console.log("Server started");\n' > service/server.js
+mkdir -p service/controllers
+mkdir -p service/models
+mkdir -p service/routes
+mkdir -p service/middleware
+echo "API Service" > service/README.md
+echo 'console.log("Server started");' > service/server.js
 EOF
-chmod +x "$(which create-service)"
-create-service
-ls -R service
-cat service/README.md
-cat service/server.js
+chmod +x create-service
+./create-service
 
 
 
 Approach:
 
-First we have to find where the create-service command is located using which.
-Secondly we have to check the script using cat so we can see what is wrong with it.
-Then we have to fix the script so it creates all the required folders named controllers, models, routes and middleware.
-We also have to make sure that README.md and server.js are created inside the service folder with the correct content.
-After fixing the script we use chmod +x to make sure the command can be executed.
-Then we run create-service to generate the required project structure.
-Finally we use ls and cat to check whether all the folders and files have been created properly.
+First we start to input lines of text into create-service till we read "EOF" and use shebang operator #!/bin/bash for bash code
+Secondly we input the services we would liek to happen which is the creator of controllers,models,routes and middleware inside of service which is laso created on the spot using mkdir -p (-p lets us make the non-existing parent folders while declaring the child folder itself)
+Next we input the text "API Service" inside of service/README.md replacing all text pre-existing if any and then we put console.log("Server started"); inside of service/server.js
+Finally we give the create-service executable permitions and execute it using ./create-service which would in return create all the services and put the text inside of README.md and put the line of code inside of server.js 
+If server.js were to be executed , it would output the text "Server started" in terminal (output window) as its inside the printing / writing function of javascript.
+
+
 Final structure should look like this:
 service/
 ├── controllers/
