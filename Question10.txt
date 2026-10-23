@@ -1,0 +1,34 @@
+Question Title: The Internship Project Setup
+Question Link: https://my.newtonschool.co/playground/code/5i36axzh7cl2?lecture_hash=mi7y4g3am46y
+
+
+Solution:
+
+cd client-app
+git init
+echo "<h1>Welcome to Client App</h1>" > index.html
+echo "console.log('Client App initialized');" > app.js
+git add index.html app.js
+git commit -m "Initial client files"
+git remote add origin https://github.com/startup/client-app.git
+git push -u origin main
+git log
+
+
+Approach:
+
+First we go into client-app folder and initialize it and put the "<h1>Welcome to Client App</h1>" into the Html file and "console.log('Client App initialized');" into the app.js file
+Next we add both files to hit and comment it with the message Initial client files.
+Next we add the origin so that our git can later push it to the said repo
+Finally we push the commits to the repo [https://github.com/startup/client-app.git] and check if it was completed sucessfull using the git log command
+
+
+Final structure looks like:
+client-app/
+├── .git/
+├── index.html
+├── app.js
+├── temp.js
+└── .DS_Store
+
+Result: Thus we have set up the internship project and pushed all commits and checked for any issues during the process
