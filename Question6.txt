@@ -1,0 +1,30 @@
+Question Title: Simplify the Compilation Process
+Question Link: https://my.newtonschool.co/playground/code/9kh4giios2j4?lecture_hash=t5qc0u6ap8tg
+
+
+Solution:
+
+cat > build.sh <<'EOF'
+#!/bin/bash
+gcc hello.c -o hello
+EOF
+chmod +x build.sh
+./build.sh
+./hello
+
+
+
+Approach:
+At first we make a file build.sh , then using cat we start inputing text inside of the file till we reach EOF
+We then use the shebang operator #!/bin/bash to set out execution to be a bash file and let the computer know of it 
+Next we give the file executable permitions and run it using ./build.sh
+The file compiles the C program and prints us our desired output of Hello from C
+
+Final structure looks like:
+.
+├── hello.c
+├── build.sh
+└── hello
+
+
+Result: we have made a build.sh file which compiles and outputs the hello.C file to get out our desired output of Hello from C when executed
